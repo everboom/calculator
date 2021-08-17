@@ -19,6 +19,7 @@ steps:
 
 - script: |
     npm install
+    npm install --global mocha
     npm run build
     npm test
   displayName: 'npm install, build, and test'
