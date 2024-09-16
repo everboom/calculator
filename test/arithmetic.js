@@ -4,6 +4,14 @@ describe('Arithmetic', function() {
       request.get('/arithmetic?operand1=21&operand2=21')
           .expect(400)
           .end(function(err, res) {
+              expect(res.body).to.eql({ error: "something else" });
+              done();
+          });
+    });
+    it('rejects missing operation', function(done) {
+      request.get('/arithmetic?operand1=21&operand2=21')
+          .expect(400)
+          .end(function(err, res) {
               expect(res.body).to.eql({ error: "Unspecified operation" });
               done();
           });
